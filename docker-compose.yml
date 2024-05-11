@@ -12,17 +12,20 @@ services:
       - "1323:1323"
     networks:
       - app-network
-    tty: true
     command: sh -c 'go mod tidy && air'
 
-#   go-gin-server:
-#     build:
-#       context: ./go-gin-server
-#       dockerfile: Dockerfile
-#     ports:
-#       - "8080:8080"
-#     networks:
-#       - app-network
+  go-gin-server:
+    build:
+      context: ./go-gin-server
+      dockerfile: Dockerfile
+    volumes:
+      - ./go-gin-server:/go-gin-server
+    working_dir: /go-gin-server
+    ports:
+      - "8080:8080"
+    networks:
+      - app-network
+    command: sh -c 'go mod tidy && air'
 
 networks:
   app-network:
