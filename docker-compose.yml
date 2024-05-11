@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  go-echo-server:
+    build:
+      context: ./go-echo-server
+      dockerfile: Dockerfile
+    ports:
+      - "1323:1323"
+    networks:
+      - app-network
+
+  go-gin-server:
+    build:
+      context: ./go-gin-server
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
