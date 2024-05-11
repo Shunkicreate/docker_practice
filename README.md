@@ -1,7 +1,7 @@
 # docker_practice
 
 ## docker composeについて
-- `version`: (ここ)[https://docs.docker.jp/compose/compose-file/compose-versioning.html]に説明がされてる。
+- `version`: [ここ](https://docs.docker.jp/compose/compose-file/compose-versioning.html)に説明がされてる。
 
 ## 練習でやること
 1. Docker上でGoのプロジェクトを立てる
