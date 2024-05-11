@@ -5,19 +5,24 @@ services:
     build:
       context: ./go-echo-server
       dockerfile: Dockerfile
+    volumes:
+      - ./go-echo-server:/go-echo-server
+    working_dir: /go-echo-server
     ports:
       - "1323:1323"
     networks:
       - app-network
+    tty: true
+    command: sh -c 'go mod tidy && air'
 
-  go-gin-server:
-    build:
-      context: ./go-gin-server
-      dockerfile: Dockerfile
-    ports:
-      - "8080:8080"
-    networks:
-      - app-network
+#   go-gin-server:
+#     build:
+#       context: ./go-gin-server
+#       dockerfile: Dockerfile
+#     ports:
+#       - "8080:8080"
+#     networks:
+#       - app-network
 
 networks:
   app-network:
